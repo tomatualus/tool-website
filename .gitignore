@@ -1,52 +1,33 @@
-# Prerequisites
-*.d
+.DS_Store
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# dotnet core
+bin/
+obj/
+project.lock.json
+NuGetScratch/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+api/wwwroot/**
+!api/wwwroot/scratch.html
+!api/wwwroot/favicon.ico
 
-# Precompiled Headers
-*.gch
-*.pch
+# node
+node_modules/
+typings/
+npm-debug.log
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# client-react
+client-react/components/*.js
+client-react.test/build
+!client-react.test/build/client-react/styles/
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# ops
+ops/hosts
+ops/config.yml
+ops/*.retry
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# other
+*.js.map
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# IDE
+.idea/
+.vs/
