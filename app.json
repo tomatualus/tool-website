@@ -1,6 +1,6 @@
 {
   "name": "AspNet5DemoApp",
-  "description": "Demo app on ASP.NET Core",
+  "description": "Demo app on ASP.NET Core1",
   "repository": "https://github.com/jincod/AspNet5DemoApp",
   "keywords": ["aspnet", "core"],
   "stack": "heroku-16",
