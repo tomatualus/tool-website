@@ -7,4 +7,13 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
+
+  <Target Name="PrePublishTarget" BeforeTargets="PrepareForPublish" Condition="$(DOTNET_RUNNING_IN_CONTAINER) != 'true'">
+    <Exec Command="yarn" />
+    <Exec Command="yarn run build" />
+    <ItemGroup>
+      <Dist Include="../../web-build/**" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Dist)" DestinationFolder="$(PublishDir)\wwwroot\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
