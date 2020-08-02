@@ -8,7 +8,7 @@ COPY src/client ./src/client/
 RUN npm run build
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS builder
-WORKDIR /source
+WORKDIR /backend
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -r linux-musl-x64 -o /app
