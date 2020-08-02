@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Yarn test
+name: Expo web build and test
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -13,10 +13,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    name: Test
+    name: Expo web build and test
     runs-on: ubuntu-latest
-    env:
-      working-dir: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -24,11 +22,7 @@ jobs:
           node-version: 12.x
       - uses: expo/expo-github-action@v5
         with:
-          working-directory: ${{env.working-dir}}
           expo-version: 3.x
       - run: yarn install
-        working-directory: ${{env.working-dir}}
       - run: yarn test
-        working-directory: ${{env.working-dir}}
       - run: expo build:web
-        working-directory: ${{env.working-dir}}
