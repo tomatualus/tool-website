@@ -24,11 +24,11 @@ jobs:
           node-version: 12.x
       - uses: expo/expo-github-action@v5
         with:
-          working-dir: ./frontend
+          working-directory: ${{env.working-dir}}
           expo-version: 3.x
       - run: yarn install
-        working-dir: ./frontend
+        working-directory: ${{env.working-dir}}
       - run: yarn test
-        working-dir: ./frontend
+        working-directory: ${{env.working-dir}}
       - run: expo build:web
-        working-dir: ./frontend
+        working-directory: ${{env.working-dir}}
