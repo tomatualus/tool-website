@@ -1,10 +1,10 @@
 FROM node:10.13.0-alpine as node
 WORKDIR /app
-COPY public ./public
-COPY src/index.js ./src/index.js
-COPY package*.json ./
+COPY ./frontend/public ./public
+COPY ./frontend/src/index.js ./src/index.js
+COPY ./frontend/package*.json ./
 RUN npm install --progress=true --loglevel=silent
-COPY src/client ./src/client/
+COPY ./frontend/src/client ./src/client/
 RUN npm run build
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS builder

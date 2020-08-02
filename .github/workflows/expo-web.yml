@@ -15,14 +15,20 @@ jobs:
   build:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      working-dir: ./frontend
     steps:
       - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v1
         with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.0.0
+          node-version: 12.x
+      - uses: expo/expo-github-action@v5
         with:
-          cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: test # will run `yarn test` command
+          working-dir: ./frontend
+          expo-version: 3.x
+      - run: yarn install
+        working-dir: ./frontend
+      - run: yarn test
+        working-dir: ./frontend
+      - run: expo build:web
+        working-dir: ./frontend
