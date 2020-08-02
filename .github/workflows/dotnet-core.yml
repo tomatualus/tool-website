@@ -10,7 +10,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      working-dir: ./backend
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -19,7 +20,10 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
+      working-directory: ${{working-dir}}
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: ${{working-dir}}
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: ${{working-dir}}
