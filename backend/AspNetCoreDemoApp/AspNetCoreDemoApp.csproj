@@ -7,8 +7,4 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
-
-  <Target Name="PrePublishTarget" BeforeTargets="PrepareForPublish" Condition="$(DOTNET_RUNNING_IN_CONTAINER) != 'true'">
-    <Copy SourceFiles="@(Dist)" DestinationFolder="$(PublishDir)\wwwroot\%(RecursiveDir)" SkipUnchangedFiles="true" />
-  </Target>
 </Project>
