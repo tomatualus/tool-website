@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetCoreDemoApp.Controllers
+namespace ToolBackend.Controllers
 {
 	[Route("api/[controller]")]
 	public class ValuesController : ControllerBase

@@ -15,4 +15,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
 COPY --from=builder /app .
 COPY --from=node /app/web-build ./wwwroot
-CMD ASPNETCORE_URLS=http://*:$PORT ./AspNetCoreDemoApp
+CMD ASPNETCORE_URLS=http://*:$PORT ./ToolBackend
